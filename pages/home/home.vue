@@ -1,5 +1,8 @@
 <template>
 	<view>
+		<view class="search-box">
+			<SearchBar @click="gotoSearch"></SearchBar>
+		</view>
 		<!-- 轮播图区域 -->
 		<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" :circular="true">
 			<swiper-item v-for="(item,index) in swiperList" :key="index">
@@ -30,7 +33,8 @@
 					</navigator>
 					<!-- 右侧图片 -->
 					<view class="right-img-box">
-						<navigator :url="item2.url" class="right-img-item" v-for="(item2,index2) in item.product_list" :key="index2">
+						<navigator :url="item2.url" class="right-img-item" v-for="(item2,index2) in item.product_list"
+							:key="index2">
 							<image :src="item2.image_src" v-if="index2!==0" :style="{width:item2.image_width+'rpx'}"
 								mode="widthFix"></image>
 						</navigator>
@@ -104,12 +108,22 @@
 				uni.switchTab({
 					url: '/pages/cate/cate'
 				})
+			},
+			gotoSearch() {
+				uni.navigateTo({
+					url: '/subpkg/search/search'
+				})
 			}
 		}
 	}
 </script>
 
 <style lang="scss">
+	.search-box{
+		position: sticky;
+		top: 0;
+		z-index: 999;
+	}
 	swiper {
 		height: 330rpx;
 

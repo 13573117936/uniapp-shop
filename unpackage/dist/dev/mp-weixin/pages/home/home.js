@@ -53,26 +53,40 @@ const _sfc_main = {
       common_vendor.index.switchTab({
         url: "/pages/cate/cate"
       });
+    },
+    gotoSearch() {
+      common_vendor.index.navigateTo({
+        url: "/subpkg/search/search"
+      });
     }
   }
 };
+if (!Array) {
+  const _easycom_SearchBar2 = common_vendor.resolveComponent("SearchBar");
+  _easycom_SearchBar2();
+}
+const _easycom_SearchBar = () => "../../components/SearchBar/SearchBar.js";
+if (!Math) {
+  _easycom_SearchBar();
+}
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return {
-    a: common_vendor.f($data.swiperList, (item, index, i0) => {
+    a: common_vendor.o($options.gotoSearch),
+    b: common_vendor.f($data.swiperList, (item, index, i0) => {
       return {
         a: item.image_src,
         b: "/subpkg/goods_detail/goods_detail?goods_id=" + item.goods_id,
         c: index
       };
     }),
-    b: common_vendor.f($data.navList, (item, index, i0) => {
+    c: common_vendor.f($data.navList, (item, index, i0) => {
       return {
         a: item.image_src,
         b: index,
         c: common_vendor.o(($event) => $options.navClickHandler(item), index)
       };
     }),
-    c: common_vendor.f($data.floorList, (item, index, i0) => {
+    d: common_vendor.f($data.floorList, (item, index, i0) => {
       return {
         a: item.floor_title.image_src,
         b: item.product_list[0].image_src,

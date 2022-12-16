@@ -13,7 +13,7 @@ const _sfc_main = {
   },
   onLoad() {
     const sysInfo = common_vendor.index.getSystemInfoSync();
-    this.wh = sysInfo.windowHeight;
+    this.wh = sysInfo.windowHeight - 50;
     this.getCateList();
   },
   methods: {
@@ -40,12 +40,26 @@ const _sfc_main = {
       common_vendor.index.navigateTo({
         url: "/subpkg/goods_list/goods_list?cid=" + item.cat_id
       });
+    },
+    gotoSearch() {
+      common_vendor.index.navigateTo({
+        url: "/subpkg/search/search"
+      });
     }
   }
 };
+if (!Array) {
+  const _easycom_SearchBar2 = common_vendor.resolveComponent("SearchBar");
+  _easycom_SearchBar2();
+}
+const _easycom_SearchBar = () => "../../components/SearchBar/SearchBar.js";
+if (!Math) {
+  _easycom_SearchBar();
+}
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return {
-    a: common_vendor.f($data.cateList, (item, index, i0) => {
+    a: common_vendor.o($options.gotoSearch),
+    b: common_vendor.f($data.cateList, (item, index, i0) => {
       return {
         a: common_vendor.t(item.cat_name),
         b: common_vendor.n(index === $data.active ? "active" : ""),
@@ -53,8 +67,8 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         d: common_vendor.o(($event) => $options.activeChange(index), item.cat_id)
       };
     }),
-    b: $data.wh + "px",
-    c: common_vendor.f($data.cateLevel2, (item2, index2, i0) => {
+    c: $data.wh + "px",
+    d: common_vendor.f($data.cateLevel2, (item2, index2, i0) => {
       return common_vendor.e({
         a: item2.children !== void 0
       }, item2.children !== void 0 ? {
@@ -71,7 +85,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         d: item2.cat_id
       });
     }),
-    d: $data.wh + "px"
+    e: $data.wh + "px"
   };
 }
 var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "D:/Project/uni-app/uni-shop/uni-shop/pages/cate/cate.vue"]]);

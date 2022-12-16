@@ -1,5 +1,6 @@
 <template>
 	<view>
+		<SearchBar @click="gotoSearch"></SearchBar>
 		<view class="scroll-view-container">
 			<!-- 左侧滑动区 -->
 			<scroll-view class="left-scroll-view" scroll-y="true" :style="{height : wh + 'px'}">
@@ -44,7 +45,7 @@
 		},
 		onLoad() {
 			const sysInfo = uni.getSystemInfoSync()
-			this.wh = sysInfo.windowHeight
+			this.wh = sysInfo.windowHeight - 50
 			this.getCateList()
 		},
 		methods: {
@@ -72,6 +73,11 @@
 			gotoGoodsList(item) {
 				uni.navigateTo({
 					url: '/subpkg/goods_list/goods_list?cid=' + item.cat_id
+				})
+			},
+			gotoSearch(){
+				uni.navigateTo({
+					url:'/subpkg/search/search'
 				})
 			}
 		}
