@@ -27,6 +27,13 @@
                     "query": "query=热",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "商品详情",
+                    "pathName": "subpkg/goods_detail/goods_detail",
+                    "query": "goods_id=769",
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }

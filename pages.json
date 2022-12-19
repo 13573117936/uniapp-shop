@@ -28,12 +28,13 @@
 			"style": {
 				"navigationBarTitleText": "",
 				"enablePullDownRefresh": false
+				// "backgroundColor": "#fff"
 			}
 		}, {
 			"path": "goods_list/goods_list",
 			"style": {
 				"navigationBarTitleText": "",
-				"enablePullDownRefresh": true
+				"enablePullDownRefresh": true,
 				"onReachBottomDistance": 150,
 				"backgroundColor": "#f8f8f8"
 			}
